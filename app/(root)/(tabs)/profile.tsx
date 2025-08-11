@@ -54,19 +54,19 @@ const Profile = () => {
           </View>
         </View>
 
-        <View className="flex-flex-col mt-10">
+        <View className="flex flex-col mt-10">
           <SettingsItem icon={icons.calendar} title="My Bookings" />
 
           <SettingsItem icon={icons.wallet} title="Payments" />
         </View>
 
-        <View className="flex-flex-col mt-5 border-t pt-5 border-primary-200">
+        <View className="flex flex-col mt-5 border-t pt-5 border-primary-200">
           {settings.slice(2).map((item, index) => (
             <SettingsItem {...item} key={index} />
           ))}
         </View>
 
-        <View className="flex-flex-col mt-5 border-t pt-5 border-primary-200">
+        <View className="flex flex-col mt-5 border-t pt-5 border-primary-200">
           <SettingsItem
             icon={icons.logout}
             title="Logout"
@@ -94,15 +94,15 @@ const SettingsItem = ({
   icon,
   title,
   onPress,
-  showArrow,
+  showArrow = true,
   textStyle,
 }: SettingsItemProps) => {
   return (
     <TouchableOpacity
-      className="flex items-center justify-between py-3"
+      className="flex flex-row items-center justify-between py-3"
       onPress={onPress}
     >
-      <View className="flex gap-2 items-center">
+      <View className="flex flex-row gap-2 items-center">
         <Image source={icon} className="size-6" />
         <Text
           className={`text-lg font-rubik-medium text-black-300 ${textStyle}`}
