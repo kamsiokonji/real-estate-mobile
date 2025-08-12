@@ -16,7 +16,8 @@
         "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.kolbejr.realestatemobile"
     },
     "web": {
       "bundler": "metro",
@@ -50,6 +51,12 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "6019545f-f33c-4478-a562-84f85fd4f9a8"
+      }
     }
   }
 }
