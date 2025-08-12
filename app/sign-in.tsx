@@ -2,8 +2,8 @@ import icons from "@/constants/icons";
 import images from "@/constants/images";
 import { login } from "@/lib/appwrite";
 import { useGlobalContext } from "@/lib/global-provider";
-import { Redirect } from "expo-router";
-import React from "react";
+import { router } from "expo-router";
+import React, { useEffect } from "react";
 import {
   Alert,
   Image,
@@ -17,9 +17,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 export default function SignIn() {
   const { refetch, loading, isLoggedIn } = useGlobalContext();
 
-  if (!loading && isLoggedIn) {
-    <Redirect href={"/"} />;
-  }
   const handleLogin = async () => {
     const result = await login();
 
@@ -30,6 +27,12 @@ export default function SignIn() {
       Alert.alert("Login failed");
     }
   };
+
+  useEffect(() => {
+    if (!loading && isLoggedIn) {
+      router.replace("/"); // Replace so user can't go back to SignIn
+    }
+  }, [loading, isLoggedIn]);
 
   return (
     <SafeAreaView className="bg-white h-full">
